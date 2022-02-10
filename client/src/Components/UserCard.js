@@ -13,8 +13,8 @@ export default class UserCard extends Component {
           <img className="img-fluid" src={this.props.user.profile_img} />
           <div class="card-body">
             <p className="float-left">
-              <strong>Username: </strong>
-              {capitalizeFirstLetter(this.props.user.username)}
+              <strong> 
+              {capitalizeFirstLetter(this.props.user.username)}</strong>
             </p>
             {hosting ? <strong>HOST</strong> : null}
           </div>

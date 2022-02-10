@@ -104,7 +104,7 @@ export default class EventForm extends Component {
             className="input-text"
           />
           <br />
-          <label>
+          {/* <label>
             Public:&nbsp;
             <input
               type="radio"
@@ -127,7 +127,7 @@ export default class EventForm extends Component {
             />
             False
           </label>
-          <br />
+          <br /> */}
           <input
             type="submit"
             name="submit"
