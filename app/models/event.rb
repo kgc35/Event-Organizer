@@ -10,6 +10,6 @@ class Event < ApplicationRecord
   end
 
   def nice_timestamp
-    time.strftime('%m-%d-%Y %I:%M%p')
+    time.localtime.strftime('%m-%d-%Y %I:%M%p')
   end
 end

@@ -9,9 +9,10 @@ export default class EventDetail extends Component {
     let event = this.props.selectedEvent;
 
     let extract_id = this.props.rsvps.map((rsvp) => rsvp.event_id);
-    let joined = extract_id.includes(event.id);
+    //console.log(extract_id)
+    let joined = extract_id.includes(event.id); //if current user's RSVPs include current event. 
 
-    let hosting = this.props.selectedEvent.user_id === this.props.id;
+    let hosting = this.props.selectedEvent.user_id === this.props.id; //if the selected event has same id as current user
 
     if (event.cost === 0) {
       event.cost = "Free";

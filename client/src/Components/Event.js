@@ -18,6 +18,7 @@ export default class Event extends Component {
             <h5 class="card-subtitle mb-3 text-muted">{event.location}</h5>
             <p class="h5 mb-2 card-text">{event.description}</p>
             <h2 className="card-title">{event.name}</h2>
+            <p class="h5 mb-2 card-text">{event.nice_timestamp}</p>
           </div>
         </div>
       </div>

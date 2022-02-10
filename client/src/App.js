@@ -41,7 +41,7 @@ class App extends Component {
     });
   };
 
-  handleLogout = () => {
+  handleLogout = () => { //Reset login state
     this.setState({
       id: 0,
       username: "",
@@ -67,7 +67,7 @@ class App extends Component {
       body: JSON.stringify(newEvent),
     }).then((res) => {
       res.json().then((data) => {
-        console.log(data);
+       // console.log(data);
 
         if (data.id) {
           this.setState({
@@ -120,19 +120,19 @@ class App extends Component {
       (rsvp) =>
         rsvp.event_id === rsvpHash.event_id && rsvp.user_id === rsvpHash.user_id
     );
-    console.log(foundRSVP[0].id);
+    //console.log(foundRSVP[0].id);
     fetch(`http://localhost:3292/rsvps/${foundRSVP[0].id}`, {
       method: "DELETE",
     }).then((res) => {
       res.json().then((data) => {
-        console.log(data);
+        //console.log(data);
 
         if (data.id) {
           let found_event = this.state.events.find((event) => {
             return event.id === data.event_id;
           });
 
-          let filtered_users = found_event.attending_users.filter(
+          let filtered_users = found_event.attending_users.filter( //removing the user corresponding to RSVP
             (user) => user.username !== this.state.username
           );
 
