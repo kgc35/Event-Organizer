@@ -184,7 +184,7 @@ export default class Login extends Component {
                       Sign Up
                     </button>
                   </p>
-                  <p class="mt-5 mb-3 text-muted">© 2021</p>
+                  <p class="mt-5 mb-3 text-muted">© 2022</p>
                 </form>
               </div>
             </div>
