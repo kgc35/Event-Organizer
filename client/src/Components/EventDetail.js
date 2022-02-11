@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserCard from "./UserCard";
+import EditEventForm from "./EditEventForm";
 
 export default class EventDetail extends Component {
   render() {
@@ -10,7 +11,7 @@ export default class EventDetail extends Component {
 
     let extract_id = this.props.rsvps.map((rsvp) => rsvp.event_id);
     //console.log(extract_id)
-    let joined = extract_id.includes(event.id); //if current user's RSVPs include current event. 
+    let joined = extract_id.includes(event.id); //if current user's RSVPs include current event.
 
     let hosting = this.props.selectedEvent.user_id === this.props.id; //if the selected event has same id as current user
 
@@ -89,6 +90,11 @@ export default class EventDetail extends Component {
                     <h3 className="my-3 mx-3">Cost:</h3>
                     <span className="h5">{event.cost} </span>
                   </p>
+                  {/* <EditEventForm
+                    id={this.props.id}
+                    selectedEvent={this.props.selectedEvent}
+                    //createEvent={this.props.createEvent}
+                  /> */}
                 </div>
               </div>
             </div>

@@ -2,14 +2,17 @@ import React, { Component } from "react";
 
 export default class EditEventForm extends Component {
   state = {
-    name: "",
-    time: "",
-    date: "",
-    location: "",
+    name: this.props.selectedEvent.name,
+    time: this.props.selectedEvent.nice_timestamp.slice(11),
+    date:
+      this.props.selectedEvent.nice_timestamp.slice(6, 10) +
+      "-" +
+      this.props.selectedEvent.nice_timestamp.slice(0, 5),
+    location: this.props.selectedEvent.location,
     cost: "",
-    description: "",
-    event_img: "",
-    user_id: "",
+    description: this.props.selectedEvent.description,
+    event_img: this.props.selectedEvent.event_img,
+    user_id: this.props.selectedEvent.user_id,
     public: "true",
   };
 
@@ -42,15 +45,16 @@ export default class EditEventForm extends Component {
   };
 
   render() {
+    console.log(this.props.selectedEvent);
     return (
       <div className="event-form">
         <form className="add-event" onSubmit={this.handleSubmit}>
-          <h3>Add an Event</h3>
+          <h3>Edit Event</h3>
           <input
             onChange={this.handleChange}
             type="text"
             name="name"
-            placeholder="Event Name"
+            value={this.state.name}
             className="input-text"
           />
           <br />
@@ -58,8 +62,9 @@ export default class EditEventForm extends Component {
             onChange={this.handleChange}
             type="date"
             name="date" //this is the rails variable
-            min="2022-01-01"
+            min="2021-01-01"
             max="2022-12-31"
+            value={this.state.date}
             className="input-text"
           />
           <br />
@@ -67,6 +72,7 @@ export default class EditEventForm extends Component {
             onChange={this.handleChange}
             type="time"
             name="time"
+            value={this.state.time}
             className="input-text"
           />
           <br />
@@ -74,7 +80,7 @@ export default class EditEventForm extends Component {
             onChange={this.handleChange}
             type="text"
             name="location"
-            placeholder="Event location"
+            value={this.state.location}
             className="input-text"
           />
           <br />
@@ -83,7 +89,7 @@ export default class EditEventForm extends Component {
             type="number"
             min="0"
             name="cost"
-            placeholder="Event Price"
+            value={this.state.cost}
             className="input-text"
           />
           <br />
@@ -91,7 +97,7 @@ export default class EditEventForm extends Component {
             onChange={this.handleChange}
             type="text"
             name="description"
-            placeholder="Event Description"
+            value={this.state.description}
             className="input-text"
           />
           <br />
@@ -99,7 +105,7 @@ export default class EditEventForm extends Component {
             onChange={this.handleChange}
             type="text"
             name="event_img"
-            placeholder="Link to Event Image"
+            value={this.state.event_img}
             className="input-text"
           />
           <br />
